@@ -26,25 +26,23 @@ This package provides ability to use amazon aws as proxy with everchanging IP.
 How To use 
 ==========
 1. Install package 
-        ```bash
-        pip install ec2_proxy
-        ```
+        `pip install ec2_proxy`
 2. Create aws account and get access key and secret key from (here)[https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials/access-key-wizard]
 
 
-There are 2 ways to use this package
+There are 2 ways to use this package </br>
 Way #1 - Use it with the creds that are present in your `.aws` folder in your home directory
 
 TProxy(instance_id:str, port:int)
-```python
+``
 from ec2_proxy import TProxy
 tp = TProxy(<instance_id_here>)
 ip = tp.start()
 print(ip)
-```
+``
 
 Way #2 - Use it with the creds that you will pass on runtime
-```python
+``
 from ec2_proxy import TProxy
 from botocore.config import Config
 import boto3
@@ -56,4 +54,4 @@ ec2 = boto3.client('ec2', region_name=region, aws_access_key_id=access_key_id, a
 tp = TProxy(<instance_id_here>, ec2=ec2)
 ip = tp.start()
 print(ip)
-```
+``
