@@ -23,15 +23,37 @@ This package provides ability to use amazon aws as proxy with everchanging IP.
 * Documentation: https://ec2-proxy.readthedocs.io.
 
 
-Features
---------
+How To use 
+==========
+1. Install package 
+        ```bash
+        pip install ec2_proxy
+        ```
+2. Create aws account and get access key and secret key from (here)[https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials/access-key-wizard]
 
-* TODO
 
-Credits
--------
+There are 2 ways to use this package
+Way #1 - Use it with the creds that are present in your `.aws` folder in your home directory
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+TProxy(instance_id:str, port:int)
+```python
+from ec2_proxy import TProxy
+tp = TProxy(<instance_id_here>)
+ip = tp.start()
+print(ip)
+```
 
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+Way #2 - Use it with the creds that you will pass on runtime
+```python
+from ec2_proxy import TProxy
+from botocore.config import Config
+import boto3
+
+region = 'us-west-2'
+access_key_id = 'YOUR_ACCESS_KEY_ID'
+secret_access_key = 'YOUR_SECRET_ACCESS_KEY'
+ec2 = boto3.client('ec2', region_name=region, aws_access_key_id=access_key_id, aws_secret_access_key=secret_access_key)
+tp = TProxy(<instance_id_here>, ec2=ec2)
+ip = tp.start()
+print(ip)
+```
