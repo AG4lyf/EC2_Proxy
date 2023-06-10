@@ -34,11 +34,12 @@ There are 2 ways to use this package:
 Way #1 - Use it with the credentials that are present in your `.aws` folder in your home directory
 
 .. code-block:: python
-   from ec2_proxy import TProxy
+   
+      from ec2_proxy import TProxy
 
-   tp = TProxy(<instance_id_here>)
-   ip = tp.start()
-   print(ip)
+      tp = TProxy(<instance_id_here>)
+      ip = tp.start()
+      print(ip)
 
 Way #2 - Use it with the credentials that you will pass at runtime
 
