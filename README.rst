@@ -23,7 +23,7 @@ This package provides the ability to use Amazon AWS as a proxy with ever-changin
 Install a Proxy Server
 ======================
 Read
-`Inline link </proxy_setup.md>`__
+`Setup </proxy_setup.md>`__
 for instructions on how to install a proxy server on an EC2 instance.
 
 
@@ -32,7 +32,9 @@ How to Use
 1. Install the package:
       pip install ec2_proxy
 
-2. Create an AWS account and obtain the access key and secret key from https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials/access-key-wizard.
+2. Create an AWS account and obtain the access key and secret key from 
+`Here <https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials/access-key-wizard>`__
+.
 
 
 There are 2 ways to use this package:
