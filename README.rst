@@ -20,6 +20,12 @@ This package provides the ability to use Amazon AWS as a proxy with ever-changin
 * Free software: Apache Software License 2.0
 * Documentation: https://ec2-proxy.readthedocs.io.
 
+Install a Proxy Server
+======================
+Read
+`Inline link </proxy_setup.md>`__
+for instructions on how to install a proxy server on an EC2 instance.
+
 
 How to Use
 ==========
@@ -34,7 +40,7 @@ There are 2 ways to use this package:
 Way #1 - Use it with the credentials that are present in your `.aws` folder in your home directory
 
 .. code-block:: python
-   
+
       from ec2_proxy import TProxy
 
       tp = TProxy(<instance_id_here>)
