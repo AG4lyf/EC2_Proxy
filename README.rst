@@ -24,9 +24,8 @@ This package provides the ability to use Amazon AWS as a proxy with ever-changin
 How to Use
 ==========
 1. Install the package:
-   ```
-   pip install ec2_proxy
-   ```
+   .. code-block:: shell
+      pip install ec2_proxy
 
 2. Create an AWS account and obtain the access key and secret key from [here](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/security_credentials/access-key-wizard).
 
@@ -35,27 +34,26 @@ There are 2 ways to use this package:
 
 Way #1 - Use it with the credentials that are present in your `.aws` folder in your home directory
 
-```python
-from ec2_proxy import TProxy
+.. code-block:: python
+      from ec2_proxy import TProxy
 
-tp = TProxy(<instance_id_here>)
-ip = tp.start()
-print(ip)
-```
+      tp = TProxy(<instance_id_here>)
+      ip = tp.start()
+      print(ip)
 
 Way #2 - Use it with the credentials that you will pass at runtime
 
-```python
-from ec2_proxy import TProxy
-from botocore.config import Config
-import boto3
+.. code-block:: python
 
-region = 'us-west-2'
-access_key_id = 'YOUR_ACCESS_KEY_ID'
-secret_access_key = 'YOUR_SECRET_ACCESS_KEY'
+      from ec2_proxy import TProxy
+      from botocore.config import Config
+      import boto3
 
-ec2 = boto3.client('ec2', region_name=region, aws_access_key_id=access_key_id, aws_secret_access_key=secret_access_key)
-tp = TProxy(<instance_id_here>, ec2=ec2)
-ip = tp.start()
-print(ip)
-```
+      region = 'us-west-2'
+      access_key_id = 'YOUR_ACCESS_KEY_ID'
+      secret_access_key = 'YOUR_SECRET_ACCESS_KEY'
+
+      ec2 = boto3.client('ec2', region_name=region, aws_access_key_id=access_key_id, aws_secret_access_key=secret_access_key)
+      tp = TProxy(<instance_id_here>, ec2=ec2)
+      ip = tp.start()
+      print(ip)
